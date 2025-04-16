@@ -6,7 +6,7 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedProfile = localStorage.getItem("profile");
+    const storedProfile = localStorage.getItem("token");
     if (storedProfile) {
       navigate("/dashboard");
     }
@@ -16,7 +16,7 @@ function Home() {
     <div>
                     <div className="navbar">
                       <div className="navbar-left">
-                        <p>Abc college</p>
+                      <p>RGUKT RK Valley</p>
                       </div>
                       <div className="navbar-right">
                         <Link to="/signup" className="nav-link">
@@ -30,10 +30,10 @@ function Home() {
 
                     <div className="college-info">
       <div className="college-text">
-        <h1>ABC College</h1>
+      <h1>RGUKT RK Valley, Idupulapaya</h1>
         <p>
-          ABC College is a prestigious institution known for its academic excellence and vibrant campus life. Our alumni network spans across the globe, and we offer a wide range of courses designed to equip students with the skills and knowledge they need to succeed.
-        </p>
+            Rajiv Gandhi University of Knowledge Technologies - RK Valley (Idupulapaya) is an institute of excellence located in Andhra Pradesh. Known for its innovative education model and focus on rural talent, RGUKT aims to provide high-quality technical education to students from diverse backgrounds.
+          </p>
       </div>
     </div>
 

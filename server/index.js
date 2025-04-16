@@ -4,8 +4,10 @@ app.use(express.json());
 require('dotenv').config();
 const mongoose = require("mongoose");
 const cors=require("cors")
-const PORT=process.env.SITE
-const db=process.env.DB;
+// const PORT=process.env.SITE
+// const db=process.env.DB;
+const PORT = process.env.SITE || 3600;
+const db = process.env.MONGO_URI;
 const bodyParser = require('body-parser');
 const path = require('path');
 const multer = require('multer');

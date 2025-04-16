@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext,useEffect } from 'react';
 import axios from 'axios';
 
 import './Myupload.css'; // Import the CSS file
@@ -9,7 +9,13 @@ export const UploadForm = () => {
     const navigate=useNavigate();
     const[token,settoken]=useState('');     
      
-     
+       useEffect(()=>{
+        const storedToken = localStorage.getItem("token");
+         if(!storedToken)
+         {
+           navigate("/");
+         }
+       },[]);
     if(token==''){
         const storedtoken=localStorage.getItem('token');
         settoken(storedtoken);
@@ -58,7 +64,7 @@ export const UploadForm = () => {
             // Handle error behavior
         }
     };
-
+    
     return (
         <div className="socio-upload-container">
             <div className='socioform'>

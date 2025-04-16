@@ -51,16 +51,24 @@ const Dashboard = () => {
   const logout = () => {
     alert("Logged out");
     localStorage.removeItem("token");
+    localStorage.removeItem("info");
     navigate("/");
   };
 
   const home = () => {
     navigate("/");
   };
+  useEffect(()=>{
+    if(!storedToken)
+    {
+      navigate("/");
+    }
+  },[]);
 
   if (loading) {
     return <div className="loading">Loading...</div>; // Loading indicator
   }
+
 
   return (
     <div>

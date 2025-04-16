@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import './Myprofile.css'; // Import the CSS file
+import './Myprofile.css'; 
 import Popup from './Messages';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 
 // Function to group messages by 'id'
@@ -23,7 +23,7 @@ export const Myprofile = () => {
     const [expandedGroups, setExpandedGroups] = useState({});
     const [loading, setLoading] = useState(true);
     
-    
+    const navigate = useNavigate();
     
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
@@ -46,6 +46,13 @@ export const Myprofile = () => {
 
         fetchProfile();
     }, [token]);
+      useEffect(()=>{
+        const storedToken = localStorage.getItem('token');
+        if(!storedToken)
+        {
+          navigate("/");
+        }
+      },[]);
 
     // Group messages by their 'id'
     const groupedMessages = profile.messages ? groupMessagesById(profile.messages) : {};
@@ -119,9 +126,9 @@ export const Myprofile = () => {
                                             <div><strong>Name:</strong> {msg.name}</div>
                                             <div><strong>Email:</strong> {msg.email}</div>
                                             <div><strong>Branch:</strong> {msg.branch}</div>
-                                            <div><strong>Roll No:</strong> {msg.rollNo}</div>
+                                            <div><strong>Roll No:</strong> {id}</div>
                                             <div><strong>Description:</strong> {msg.description}</div>
-                                            <Link  to={`/profile/${msg.rollNo}`}>Message Him</Link>
+                                            <Link  to={`/profile/${id}`}>Message Him</Link>
                                             
                                         </li>
                                      

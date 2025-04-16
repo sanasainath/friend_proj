@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import axios from  'axios' 
 import './Signup.css'; // Create a CSS file for styling
 import { Link, useNavigate } from 'react-router-dom';
@@ -11,8 +11,16 @@ const Signup = () => {
   const [rollNo, setRollNo] = useState('');
   const [password, setPassword] = useState('');
  
+    useEffect(()=>{
+      const storedToken = localStorage.getItem("token");
+      if(storedToken)
+      {
+        localStorage.removeItem("token");
+        localStorage.removeItem("info");
+        navigate("/");
+      }
   
-  
+    },[]);
   const handlesignup = async (e) => {
     
     e.preventDefault();
@@ -30,7 +38,7 @@ const Signup = () => {
 
   return (
     <>
-    <h1 ><Link className='home' to="/">ABC COLLEGE</Link></h1>
+    <h1 ><Link className='home' to="/">Rgukt Rk Valley</Link></h1>
     
     <div className='signupcontainer'>
  

@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Setprofile from './components/Setprofile';
-import Editprofile from './components/Editprofile';
+import Editprofile from './components/Editprofile'; 
 
 import { RollNoProvider } from './components/RollNoContext';
 import './App.css'; // Import your CSS file
@@ -32,6 +32,7 @@ function App() {
             <Route path="/getprofile/:rollNo" element={<Profile />} />
             <Route path="/setprofile" element={<Setprofile />} />
             <Route path="/myprofile" element={<Myprofile />} />
+            <Route path="/profile/:rollNo" element={<Profile />} />
             <Route path="/upload" element={<UploadForm />} />
             <Route path="/editprofile/:profileid" element={<Editprofile />} />
     
@@ -43,3 +44,4 @@ function App() {
 }
 
 export default App;
+

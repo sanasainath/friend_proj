@@ -16,7 +16,13 @@ const Setprofile = () => {
   const [title, setTitle] = useState("");
   const [email, setEmail] = useState("");
   
- 
+  useEffect(()=>{
+    const token1= localStorage.getItem("token");
+     if(!token1)
+     {
+       navigate("/");
+     }
+   },[]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

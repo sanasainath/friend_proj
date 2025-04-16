@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import './Signin.css'; // Make sure to import the CSS file
@@ -8,16 +8,28 @@ const Signin = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  useEffect(()=>{
+    const storedToken = localStorage.getItem("token");
+    if(storedToken)
+    {
+      localStorage.removeItem("token");
+      localStorage.removeItem("info");
+      navigate("/");
+    }
+
+  },[]);
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:3600/api/signin", { rollNo, password }).then(
         (result)=>{
           console.log("response is",result.data);
-          localStorage.setItem('token',result.data);}
+          localStorage.setItem('token',result.data);
+            navigate('/dashboard');        
+        }
       );
       
-      navigate('/dashboard');
+    
       
     } catch (error) {
       alert("Login failed. Please check your roll number and password.", error);
@@ -26,7 +38,7 @@ const Signin = () => {
 
   return (
     <>
-    <h1 ><Link className='home' to="/">ABC COLLEGE</Link></h1>
+    <h1 ><Link className='home' to="/">RGUKT RK Valley</Link></h1>
     <div className="login-page">
       
       <div className="login-container">
