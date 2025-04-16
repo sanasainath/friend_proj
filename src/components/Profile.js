@@ -17,7 +17,7 @@ const Profile = () => {
     const fetchProfile = async () => {
      
         try {
-          const response = await axios.post("http://localhost:3600/api/getotherprofile", { rollNo });
+          const response = await axios.post("https://friend-proj-3.onrender.com/api/getotherprofile", { rollNo });
           setProfile(response.data);
         } catch (error) {
           console.error("Error fetching profile data:", error);
@@ -45,7 +45,7 @@ const Profile = () => {
       <div className="profile-header">
         {profiledata.uploads.image && (
           <img
-            src={`http://localhost:3600/uploads/${profiledata.uploads.image}`}
+            src={`https://friend-proj-3.onrender.com/uploads/${profiledata.uploads.image}`}
             alt={profiledata.uploads.name || "Profile Image"}
             width="100"
           />
@@ -70,7 +70,7 @@ const Profile = () => {
                 <p><strong>Description:</strong> {upload.description}</p>
                 {upload.image && (
                   <img
-                    src={`http://localhost:3600/uploads/${upload.image}`}
+                    src={`https://friend-proj-3.onrender.com/uploads/${upload.image}`}
                     alt={upload.description}
                     width="200"
                   />

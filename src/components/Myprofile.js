@@ -34,7 +34,7 @@ export const Myprofile = () => {
         const fetchProfile = async () => {
             try {
                 setLoading(true);
-                const response = await axios.post('http://localhost:3600/api/myprofile', { token });
+                const response = await axios.post('https://friend-proj-3.onrender.com/api/myprofile', { token });
                 console.log("response ", response);
                 setProfile(response.data.uploads || {});
                 setLoading(false);
@@ -76,7 +76,7 @@ export const Myprofile = () => {
 
                 <div className="myprofile-header">
                     {/* Uncomment and adjust image path as necessary */}
-                    {profile.image && <img  src={`http://localhost:3600/uploads/${profile.image}`} alt="Profile" />}
+                    {profile.image && <img  src={`https://friend-proj-3.onrender.com/uploads/${profile.image}`} alt="Profile" />}
                     <div>
                         <h1 className="capitalize">{profile.name || 'N/A'}</h1>
                         <p><strong>Email:</strong> {profile.email || 'N/A'}</p>
@@ -95,7 +95,7 @@ export const Myprofile = () => {
                                     <div className='singlepost'>
                                     <div>{post.description}</div>
                                     <img
-                                        src={`http://localhost:3600/uploads/${post.image}`}
+                                        src={`https://friend-proj-3.onrender.com/uploads/${post.image}`}
                                         alt={post.description}
                                         width="200"
                                         className="allpost-image"

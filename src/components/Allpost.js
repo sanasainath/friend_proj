@@ -20,7 +20,7 @@ const Allpost = () => {
   useEffect(() => {
     const fetchUploads = async () => {
       try {
-        const response = await axios.get('http://localhost:3600/api/alluploads');
+        const response = await axios.get('https://friend-proj-3.onrender.com/api/alluploads');
         const sortedUploads = response.data;
         setUploads(sortedUploads);
       } catch (error) {
@@ -59,7 +59,7 @@ const Allpost = () => {
               </div>
               <div className='allpost-item-right'>
                 <img
-                  src={`http://localhost:3600/uploads/${upload.image}`}
+                  src={`https://friend-proj-3.onrender.com/uploads/${upload.image}`}
                   alt={upload.description}
                   width="200"
                   className="allpost-image"

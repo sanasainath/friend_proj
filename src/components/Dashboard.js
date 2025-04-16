@@ -19,7 +19,7 @@ const Dashboard = () => {
     const fetchProfile = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:3600/api/getprofile",
+          "https://friend-proj-3.onrender.com/api/getprofile",
           { token }
         );
         console.log(response.data.uploads, "response is ");

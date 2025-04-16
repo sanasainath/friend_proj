@@ -22,7 +22,7 @@ const Popup = ({ isOpen, onClose }) => {
        
         const sendmessage=async(req,res)=>{
           try {
-            const response = await axios.post('http://localhost:3600/api/message', {rollNo,name,id,email,branch,description})
+            const response = await axios.post('https://friend-proj-3.onrender.com/api/message', {rollNo,name,id,email,branch,description})
             alert("message sent")
           }
            catch(err){

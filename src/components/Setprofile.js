@@ -36,7 +36,7 @@ const Setprofile = () => {
     formData.append("storedtoken", storedtoken);
      
     try {
-      const response = await axios.post(`http://localhost:3600/api/setprofile`,  formData, {
+      const response = await axios.post(`https://friend-proj-3.onrender.com/api/setprofile`,  formData, {
         headers: {
             'Content-Type': 'multipart/form-data'
         }

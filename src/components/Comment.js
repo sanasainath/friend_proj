@@ -9,7 +9,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const response = await axios.get(`http://localhost:3600/api/posts/${postId}`);
+      const response = await axios.get(`https://friend-proj-3.onrender.com/api/posts/${postId}`);
       setPost(response.data);
     };
 
@@ -18,7 +18,7 @@ const App = () => {
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post('http://localhost:3600/api/comments', {
+    const response = await axios.post('https://friend-proj-3.onrender.com/api/comments', {
       content: comment,
       author: 'Anonymous', // Replace with actual author name
       postId: postId,

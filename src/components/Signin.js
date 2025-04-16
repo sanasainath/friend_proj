@@ -21,7 +21,7 @@ const Signin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3600/api/signin", { rollNo, password }).then(
+      const response = await axios.post("https://friend-proj-3.onrender.com/api/signin", { rollNo, password }).then(
         (result)=>{
           console.log("response is",result.data);
           localStorage.setItem('token',result.data);

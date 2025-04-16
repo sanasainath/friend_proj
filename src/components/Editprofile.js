@@ -32,7 +32,7 @@ const ProfileEdit = () => {
 
     try {
       console.log(profile);
-      const response = await axios.post(`http://localhost:3600/api/editprofile`, profile);
+      const response = await axios.post(`https://friend-proj-3.onrender.com/api/editprofile`, profile);
       console.log('Profile updated:', response.data);
       // Optionally redirect or show success message
     } catch (error) {

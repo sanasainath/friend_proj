@@ -25,7 +25,7 @@ const Signup = () => {
     
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3600/api/signup",{role,rollNo,password})
+      const response = await axios.post("https://friend-proj-3.onrender.com/api/signup",{role,rollNo,password})
       .then(result=>{console.log("result is",result)})
         alert(('success redirected to signin'))
         navigate('/signin')
