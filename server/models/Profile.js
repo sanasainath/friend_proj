@@ -27,7 +27,7 @@ const profileSchema= new mongoose.Schema({
             posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'uploadpost' }],
             messages: [{ type: mongoose.Schema.Types.ObjectId, ref: 'messages' }],
             rollNo:{
-                type:Number,
+                type:String,
                 required:true,
             }
 
