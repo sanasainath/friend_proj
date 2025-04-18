@@ -92,3 +92,41 @@ exports.deleteUpload = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+exports.editUpload = async (req, res) => {
+    try {
+        const { postId } = req.params;
+        const { description, token } = req.body;
+        const decoded = jwt.verify(token, process.env.SECRET_KEY);
+        const rollNo = decoded.rollNo;
+
+        // Check if the post exists
+        const post = await uploadpost.findById(postId);
+        if (!post) {
+            return res.status(404).json({ message: "Post not found" });
+        }
+
+        // Check if the current user is the one who uploaded the post (by comparing rollNo)
+        if (post.rollNo !== rollNo) {
+            return res.status(403).json({ message: "You can only edit your own posts" });
+        }
+
+        // Prepare the update data
+        const updateData = {};
+        if (description) updateData.description = description;
+        if (req.file) updateData.image = req.file.filename;
+
+        // Update the post with new values
+        const updatedPost = await uploadpost.findByIdAndUpdate(postId, updateData, { new: true });
+
+        // Send the updated post back to the client
+        res.status(200).json({
+            message: "Post updated successfully",
+            updatedPost
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: error.message });
+    }
+};
+
