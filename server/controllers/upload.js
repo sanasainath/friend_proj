@@ -94,6 +94,7 @@ exports.deleteUpload = async (req, res) => {
 };
 exports.editUpload = async (req, res) => {
     try {
+        console.log("checkkkkkkkkkkkkk");
         const { postId } = req.params;
         const { description, token } = req.body;
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
