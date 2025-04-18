@@ -17,7 +17,7 @@ const multer = require('multer');
 app.use(bodyParser.json());
 const corsoptions = {
   origin: ["http://localhost:3000", "https://friend-proj.vercel.app"],
-  methods: "GET,POST,DELETE",
+  methods: "GET,POST,DELETE,PUT",
   credentials: true
 };
 
