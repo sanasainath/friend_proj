@@ -35,7 +35,7 @@ router.post('/api/getotherprofile', getotherprofile);
 router.post('/api/editprofile',editprofile);
 router.post('/api/message',messages);
 router.post('/api/myprofile',myprofile);
-router.delete('/api/deleteuploads',deleteUpload)
+router.delete('/api/deleteuploads/:postId',deleteUpload)
 
 router.post('/api/setprofile', upload.single('setimage'),setprofile);
 
