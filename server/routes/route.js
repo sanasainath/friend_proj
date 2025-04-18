@@ -4,7 +4,7 @@ const multer = require('multer');
 const path = require('path');
 
 const {rolesignup,rolesignin}=require("../controllers/rolesignup")
-const {uploadImage,getAllUploads,getmyUploads}=require("../controllers/upload")
+const {uploadImage,getAllUploads,getmyUploads, deleteUpload}=require("../controllers/upload")
 
 const {setprofile,getprofile,editprofile,getotherprofile}=require("../controllers/setprofile")
 const {messages} =require('../controllers/messages')
@@ -35,7 +35,7 @@ router.post('/api/getotherprofile', getotherprofile);
 router.post('/api/editprofile',editprofile);
 router.post('/api/message',messages);
 router.post('/api/myprofile',myprofile);
-
+router.delete('/api/deleteuploads',deleteUpload)
 
 router.post('/api/setprofile', upload.single('setimage'),setprofile);
 

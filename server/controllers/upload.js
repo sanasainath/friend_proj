@@ -73,3 +73,22 @@ exports.getmyUploads=async(req,res) =>{
         res.status(500).json({ error: error.message });
     } 
 }
+
+exports.deleteUpload = async (req, res) => {
+    try {
+        const { postId } = req.params;
+
+        const deletedPost = await uploadpost.findByIdAndDelete(postId);
+
+        if (!deletedPost) {
+            return res.status(404).json({ message: "Post not found" });
+        }
+
+        console.log("Deleted post ID:", postId);
+
+        res.status(200).json({ message: "Post deleted successfully" });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: error.message });
+    }
+};
